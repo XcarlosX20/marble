@@ -1,10 +1,11 @@
-import Image from 'next/image'
-import { Montserrat } from 'next/font/google'
-
-const font = Montserrat({ subsets: ['latin'] })
-
+import {Circle} from '@/Components/Carousel/Circle'
+import Header from '@/Components/Layout/Header'
+import {SelectMarble} from '@/Components/sections/SelectMarble'
 export default function Home() {
   return (
-   <h1>First Commit</h1>
+   <>
+   <Header/>
+   <SelectMarble/>
+   </>
   )
 }
