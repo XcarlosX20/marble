@@ -9,7 +9,7 @@ import instagram from 'public/assets/svg/IoLogoInstagramsocilalmedia.svg'
 import mail from 'public/assets/svg/IoMailOutlinesocilalmedia.svg'
 const slug = require('slug')
 const Header = () => {
-    const options:string[]= ['Why us', 'Projects', 'Our story', 'Contact us']
+    const options:string[]= ['Our work','Why us', 'Projects', 'Our story', 'Contact us']
      const socialMedias = [
     {name: 'phone', icon: phone, url:'/'},
     {name: 'instagram', icon: instagram, url:'/'},
@@ -18,7 +18,7 @@ const Header = () => {
 ]
     return ( 
         <>
-        <header className="bg-light-200 w-full fixed">
+        <header className="bg-light-200 w-full fixed z-30">
             <div className="flex justify-between h-20 px-3 pt-2 ">
                 <div className="flex justify-center md:justify-end w-5/12 md:w-3/12">
                     <div className="bg-light-200 pb-2 rounded-[50%] w-36 h-28 flex justify-center">
@@ -27,7 +27,7 @@ const Header = () => {
                 </div>
                 <div className='w-2/12 md:w-11/12 flex md:justify-center md:mr-32 lg:mr-50 xl:mr-60'  >
                     <BtnBurguer socialMedias={socialMedias} options={options}/>
-                    <div className="hidden md:flex lg:flex py-2">
+                    <div className="hidden md:flex lg:flex gap-2 py-2">
                         {options.map(option => (
                         <div className={`p-3 uppercase font-bold ${font.className}`} key={option}>
                             <a className='hover:border-blue-100 hover:border-b-2 pb-1 ' href={`#${slug(option)}`}>{option}</a>
