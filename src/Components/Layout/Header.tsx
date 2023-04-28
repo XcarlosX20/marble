@@ -39,7 +39,7 @@ const Header = () => {
                 
             </div>
         </header>
-        <aside className='hidden md:block fixed right-4 top-1/4 z-30'>
+        <aside className='hidden md:block absolute right-4 top-1/4 z-20'>
              <div className="grid grid-rows-4 gap-4">
                             {socialMedias.map((item,index) => (
                               <div key={index} className="w-full flex justify-center">

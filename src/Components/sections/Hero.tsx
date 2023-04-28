@@ -5,7 +5,18 @@ import kitchen from 'public/assets/svg/Vectorkitchen.svg'
 import customDesign from 'public/assets/svg/ruler_svgrepo.comcustomdesign.svg'
 import bathroom from 'public/assets/svg/Vectorbathroom.svg'
 import flooring from 'public/assets/svg/Vectorflooring.svg'
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 const Hero = () => {
+     const sliderProps = {
+      arrows:false,
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
     return ( 
     <>
     <div className="h-[150vh] bg-light-200 relative">
@@ -18,12 +29,30 @@ const Hero = () => {
                         <p className="font-medium">Experience the beauty and functionality of marble. Our expert work enhances spaces. Trust us for quality and attention to detail.</p>
                         <Button>FIND OUT MORE</Button>
                     </article>
-                    <div className="grid grid-cols-4 gap-4 px-[160px]">
+                    <div className="md:hidden ">
+                        <Slider className="w-60 mx-auto " {...sliderProps}>
+                            <div className="bg-[#2D2D2D] min-h-[260px] p-8">
+                            <div className="flex flex-col gap-4">
+                            <Image src={kitchen} alt="kitchen" />
+                            <p className="text-blue-100 font-medium uppercase" >Kitchen</p>
+                            <p className="text-fontWhite" >Upgrade your kitchen with custom marble features that are both stylish and durable.</p>
+                            </div>
+                            </div>
+                            <div className="bg-[#2D2D2D] min-h-[260px] p-8">
+                        <div className="flex flex-col gap-4">
+                            <Image src={kitchen} alt="kitchen" />
+                            <p className="text-blue-100 font-medium uppercase" >Kitchen</p>
+                            <p className="text-fontWhite" >Upgrade your kitchen with custom marble features that are both stylish and durable.</p>
+                        </div>
+                       </div>
+                        </Slider>
+                    </div>
+                    <div className="md:grid grid-cols-4 gap-4 px-[160px] hidden">
                        <div className="bg-[#2D2D2D] p-8">
                         <div className="flex flex-col gap-4">
                             <Image src={kitchen} alt="kitchen" />
-                        <p className="text-blue-100 font-medium uppercase" >Kitchen</p>
-                        <p className="text-fontWhite" >Upgrade your kitchen with custom marble features that are both stylish and durable.</p>
+                            <p className="text-blue-100 font-medium uppercase" >Kitchen</p>
+                            <p className="text-fontWhite" >Upgrade your kitchen with custom marble features that are both stylish and durable.</p>
                         </div>
                        </div>
                        <div className="bg-[#2D2D2D] p-3">
