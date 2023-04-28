@@ -12,7 +12,7 @@ const Hero = () => {
         <Image className="h-[100vh] object-cover" src={bg} alt="bg-hero" />
         <div className="absolute w-full h-full z-10 top-0 left-0 right-0 bottom-0">
             <div className="pt-[225px] px-8">
-                <div className="flex flex-col gap-20">
+                <div className="flex flex-col gap-14">
                     <article className="flex flex-col items-start gap-4 w-full md:w-[646px] md:pl-20 lg:pl-48">
                         <h2 className="font-bold text-3xl" >Crafting Timeless beauty with the finest quality marble materials</h2>
                         <p className="font-medium">Experience the beauty and functionality of marble. Our expert work enhances spaces. Trust us for quality and attention to detail.</p>
@@ -20,7 +20,7 @@ const Hero = () => {
                     </article>
                     <div className="grid grid-cols-4 gap-4 px-[160px]">
                        <div className="bg-[#2D2D2D] p-8">
-                        <div className="flex flex-col gap-4 min-h-20">
+                        <div className="flex flex-col gap-4">
                             <Image src={kitchen} alt="kitchen" />
                         <p className="text-blue-100 font-medium uppercase" >Kitchen</p>
                         <p className="text-fontWhite" >Upgrade your kitchen with custom marble features that are both stylish and durable.</p>

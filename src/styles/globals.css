@@ -5,3 +5,54 @@ body{
     font-size: 16px;
     width: 100%;
 }
+.btn:hover{
+    transition: all .5s ease;
+}
+.btn.btn-hover{
+    animation: btn 170ms;
+    animation-fill-mode: forwards;
+}
+@keyframes btn {
+    from {
+        background: linear-gradient(105.64deg, #080808 35.41%, #061616 101.71%);
+    }
+    8%{
+         background: linear-gradient(105.64deg, #080808 35.41%, #0c2726 101.71%);
+    }
+    16%{
+       background: linear-gradient(105.64deg, #080808 35.41%, #0e413f 101.71%);
+    }
+    32%{
+         background: linear-gradient(105.64deg, #080808 35.41%, #0f3836 101.71%);
+    }
+    40%{
+         background: linear-gradient(105.64deg, #080808 35.41%, #124443 101.71%);
+    }
+    48%{
+         background: linear-gradient(105.64deg, #080808 35.41%, #144b4a 101.71%);
+    }
+    56%{
+         background: linear-gradient(105.64deg, #080808 35.41%, #175352 101.71%);
+    }
+    62%{
+         background: linear-gradient(105.64deg, #080808 35.41%, #195a59 101.71%);
+    }
+    70%{
+        background: linear-gradient(105.64deg, #080808 35.41%, #1f6e6d 101.71%);
+    }
+    75%{
+         background: linear-gradient(105.64deg, #080808 35.41%, #20706f 101.71%);
+    }
+    80%{
+        background: linear-gradient(105.64deg, #080808 35.41%, #217271 101.71%);
+    }
+    85%{
+        background: linear-gradient(105.64deg, #080808 35.41%, #237574 101.71%);
+    }
+    90%{
+        background: linear-gradient(105.64deg, #080808 35.41%, #247472 101.71%);
+    }
+    to {
+        background: linear-gradient(105.64deg, #080808 35.41%, #268B88 101.71%);
+    }
+}
