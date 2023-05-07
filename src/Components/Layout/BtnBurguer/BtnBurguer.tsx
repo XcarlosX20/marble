@@ -52,7 +52,7 @@ const BtnBurguer = ({ options, socialMedias }: Props) => {
                   >
                     <Link
                       className={`${font.className}`}
-                      href={`#${slug(option)}`}
+                      href={`/#${slug(option)}`}
                     >
                       {option}
                     </Link>

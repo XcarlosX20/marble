@@ -41,7 +41,7 @@ const Header = () => {
                   key={option}
                 >
                   <Link
-                    href={`#${slug(option)}`}
+                    href={`/#${slug(option)}`}
                     className="hover:border-blue-100 hover:border-b-2 pb-1 "
                   >
                     {option}
