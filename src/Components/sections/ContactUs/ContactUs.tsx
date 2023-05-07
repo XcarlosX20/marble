@@ -1,6 +1,7 @@
 import { useScrollIntoView } from "@/Hooks/useScrollIntoView";
 import Image from "next/image";
 import phoneIcon from "public/assets/svg/phone-modern_svgrepo.comcallus.svg";
+import { Form } from "./Form";
 const ContactUs = () => {
   const { CScrollIntoView } = useScrollIntoView("/#contact-us");
   return (
@@ -12,10 +13,10 @@ const ContactUs = () => {
         }}
         className="py-[70px] bg-cover"
       >
-        <h2 className="text-center text-fontWhite uppercase text-3xl font-bold mb-14">
+        <h2 className="text-center text-fontWhite uppercase text-3xl font-bold mb-12">
           LET’S WORK TOGETHER
         </h2>
-        <div className="mx-8 md:mx-20 divide-none md:divide-x md:divide-x-1 md:divide-solid divide-fontWhite flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-0">
+        <div className="mx-8 md:mx-20 mb-14 divide-none md:divide-x md:divide-x-1 md:divide-solid divide-fontWhite flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-0">
           <div className="flex flex-col items-center gap-3">
             <Image width={70} height={70} src={phoneIcon} alt="icon" />
             <p className="text-blue-100 font-semibold uppercase ">Call us</p>
@@ -48,6 +49,12 @@ const ContactUs = () => {
               <p className="text-fontWhite">Austin, TX 78701</p>
             </div>
           </div>
+        </div>
+        <div className="mx-8 md:mx-20">
+          <h3 className="text-fontWhite text-center uppercase font-semibold text-2xl mb-10">
+            Get in touch
+          </h3>
+          <Form />
         </div>
       </section>
     </CScrollIntoView>
