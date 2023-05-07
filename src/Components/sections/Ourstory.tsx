@@ -6,7 +6,7 @@ const OurStory = () => {
   return (
     <CScrollIntoView>
       <section className="bg-gray py-[70px]">
-        <h2 className="md:hidden text-fontWhite uppercase text-center text-6xl font-bold mb-8">
+        <h2 className="md:hidden text-fontWhite uppercase text-center text-3xl font-bold mb-8">
           Our Story
         </h2>
         <div className="flex flex-col mx-8 md:ml-0 md:mr-20 md:flex-row gap-4">
