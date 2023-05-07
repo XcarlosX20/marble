@@ -1,7 +1,10 @@
 import { useRouter } from "next/router";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, FC } from "react";
+interface Props {
+  children: React.ReactNode;
+}
 const useScrollIntoView = (path: string) => {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   let router = useRouter();
   useEffect(() => {
     if (sectionRef.current === null) {
@@ -12,8 +15,10 @@ const useScrollIntoView = (path: string) => {
         behavior: "smooth",
       });
   }, [router, path]);
-  let Component: JSX.Element = <div ref={sectionRef}></div>;
-  return { Component };
+  const CScrollIntoView = ({ children }: Props) => (
+    <div ref={sectionRef}>{children}</div>
+  );
+  return { CScrollIntoView };
 };
 
 export { useScrollIntoView };
