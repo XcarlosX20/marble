@@ -1,9 +1,12 @@
+import { useScrollIntoView } from "@/Hooks/useScrollIntoView";
 import Image from "next/image";
 import phoneIcon from "public/assets/svg/phone-modern_svgrepo.comcallus.svg";
 import mailIcon from "public/assets/svg/phone-modern_svgrepo.comcallus.svg";
 const ContactUs = () => {
+  const { Component } = useScrollIntoView("/#contact-us");
   return (
     <section
+      {...Component}
       style={{
         backgroundImage:
           "url(https://res.cloudinary.com/do5yybhwe/image/upload/v1683353434/Rectangle_228bgcontactus_xje3wp.jpg)",

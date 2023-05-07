@@ -4,6 +4,9 @@ import quality from "public/assets/svg/VectorQuality.svg";
 import excellence from "public/assets/svg/Vectorexcellence.svg";
 import style from "public/assets/svg/Vectorstyle.svg";
 import project24 from "public/assets/svg/24+add.svg";
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
+import { useScrollIntoView } from "@/Hooks/useScrollIntoView";
 const Whyus = () => {
   const qualities = [
     {
@@ -27,9 +30,11 @@ const Whyus = () => {
       bodyContent: "The art of marble: Timeless, luxurious, and functional.",
     },
   ];
+  const { Component } = useScrollIntoView("/#why-us");
   return (
     <>
       <section
+        {...Component}
         style={{
           backgroundImage:
             "url(https://res.cloudinary.com/do5yybhwe/image/upload/v1682628836/bgwhyus-min_jnymc8.jpg)",
