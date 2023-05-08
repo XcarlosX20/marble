@@ -2,7 +2,7 @@ import { useScrollIntoView } from "@/Hooks/useScrollIntoView";
 import Image from "next/image";
 import imageOurStory from "public/assets/img/three-male-friends-standing-against-white-wall-pointing-finger-upward-looking-camera 1ourstory.jpg";
 const OurStory = () => {
-  const { CScrollIntoView } = useScrollIntoView("/#why-us");
+  const { CScrollIntoView } = useScrollIntoView("/#our-story");
   return (
     <CScrollIntoView>
       <section className="bg-gray py-[70px]">

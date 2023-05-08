@@ -17,6 +17,32 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const heroCards = [
+    {
+      icon: kitchen,
+      name: "Kitchen",
+      description:
+        "Upgrade your kitchen with custom marble features that are both stylish and durable.",
+    },
+    {
+      icon: bathroom,
+      name: "Bathroom",
+      description:
+        "Transform your bathroom into a luxurious oasis with custom marble vanities, showers, and flooring.",
+    },
+    {
+      icon: flooring,
+      name: "Flooring",
+      description:
+        "Elevate your space with beautiful and durable marble flooring.",
+    },
+    {
+      icon: customDesign,
+      name: "Custom design",
+      description:
+        "Create a one-of-a-kind feature for your space with our custom marble design services.",
+    },
+  ];
   return (
     <>
       <div className="bg-light-200 relative">
@@ -43,55 +69,32 @@ const Hero = () => {
                 <Button>FIND OUT MORE</Button>
               </article>
               <div className="md:hidden ">
-                <Slider className="w-60 mx-auto " {...sliderProps}>
-                  <div className="bg-[#2D2D2D] min-h-[260px] p-8">
-                    <div className="flex flex-col gap-4">
-                      <Image src={kitchen} alt="kitchen" />
-                      <p className="text-blue-100 font-medium uppercase">
-                        Kitchen
-                      </p>
-                      <p className="text-fontWhite">
-                        Upgrade your kitchen with custom marble features that
-                        are both stylish and durable.
-                      </p>
+                <Slider className="w-60 mx-auto" {...sliderProps}>
+                  {heroCards.map((card) => (
+                    <div key={card.name} className="bg-[#2D2D2D] h-[20rem] p-8">
+                      <div className="flex flex-col gap-4">
+                        <Image src={card.icon} alt="kitchen" />
+                        <p className="text-blue-100 font-medium uppercase">
+                          {card.name}
+                        </p>
+                        <p className="text-fontWhite">{card.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="bg-[#2D2D2D] min-h-[260px] p-8">
-                    <div className="flex flex-col gap-4">
-                      <Image src={kitchen} alt="kitchen" />
-                      <p className="text-blue-100 font-medium uppercase">
-                        Kitchen
-                      </p>
-                      <p className="text-fontWhite">
-                        Upgrade your kitchen with custom marble features that
-                        are both stylish and durable.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </Slider>
               </div>
               <div className="md:grid grid-cols-4 gap-4 mx-20 lg:mx-[160px] hidden">
-                <div className="bg-[#2D2D2D] p-8">
-                  <div className="flex flex-col gap-4">
-                    <Image src={kitchen} alt="kitchen" />
-                    <p className="text-blue-100 font-medium uppercase">
-                      Kitchen
-                    </p>
-                    <p className="text-fontWhite">
-                      Upgrade your kitchen with custom marble features that are
-                      both stylish and durable.
-                    </p>
+                {heroCards.map((card) => (
+                  <div key={card.name} className="bg-[#2D2D2D] p-8">
+                    <div className="flex flex-col gap-4">
+                      <Image src={card.icon} alt="kitchen" />
+                      <p className="text-blue-100 font-medium uppercase">
+                        {card.name}
+                      </p>
+                      <p className="text-fontWhite">{card.description}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-[#2D2D2D] p-3">
-                  <Image src={bathroom} alt="flooring" />
-                </div>
-                <div className="bg-[#2D2D2D] p-3">
-                  <Image src={flooring} alt="flooring" />
-                </div>
-                <div className="bg-[#2D2D2D] p-3">
-                  <Image src={customDesign} alt="customDesign" />
-                </div>
+                ))}
               </div>
             </div>
           </div>
