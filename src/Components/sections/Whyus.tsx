@@ -43,9 +43,11 @@ const Whyus = () => {
         >
           <h2 className="text-center uppercase text-3xl font-bold">Why us</h2>
           <div className="px-18 py-16 mx-8 md:mx-20 lg:mx-40 flex flex-col gap-8 md:flex-row">
-            <div className="flex flex-col items-center gap-6 md:items-start md:w-4/12">
+            <div className="flex flex-col items-center gap-6 md:items-start lg:items-center md:w-4/12">
               <Image src={project24} alt="projects done" />
-              <p className="w-9/12">Projects made for costumers</p>
+              <p className="w-9/12 xl:text-center">
+                Projects made for costumers
+              </p>
             </div>
             <div className="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-y-16 md:w-8/12">
               {qualities.map((quality) => (
