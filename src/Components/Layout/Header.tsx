@@ -52,15 +52,15 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <aside className="hidden md:block absolute right-4 top-1/4 z-20">
+      <aside className="hidden md:block absolute right-4 top-[33%] z-20">
         <div className="grid grid-rows-4 gap-4">
           {socialMedias.map((item, index) => (
             <div key={index} className="w-full flex justify-center">
-              <div className="flex justify-center items-center w-12 h-12 hover:bg-blue-100 rounded-[50%]">
-                <a href={item.url}>
+              <a href={item.url}>
+                <div className="flex justify-center items-center w-12 h-12 hover:bg-blue-100 rounded-[50%] cursor-pointer">
                   <Image src={item.icon} alt={`social media: ${item.name}`} />
-                </a>
-              </div>
+                </div>
+              </a>
             </div>
           ))}
         </div>

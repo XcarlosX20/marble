@@ -1,5 +1,7 @@
 import { useScrollIntoView } from "@/Hooks/useScrollIntoView";
 import Image from "next/image";
+import locationIcon from "public/assets/svg/IoLocationOutlinelocateus.svg";
+import mailIcon from "public/assets/svg/IoMailOutlineemail.svg";
 import phoneIcon from "public/assets/svg/phone-modern_svgrepo.comcallus.svg";
 import { Form } from "./Form";
 const ContactUs = () => {
@@ -30,7 +32,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="flex flex-col items-center px-2 gap-3">
-            <Image width={70} height={70} src={phoneIcon} alt="icon" />
+            <Image width={70} height={70} src={mailIcon} alt="icon" />
             <p className="text-blue-100 font-semibold uppercase">Mail us</p>
             <div className="flex flex-col">
               <a
@@ -42,7 +44,7 @@ const ContactUs = () => {
             </div>
           </div>
           <div className="flex flex-col items-center gap-3">
-            <Image src={phoneIcon} alt="icon" />
+            <Image src={locationIcon} alt="icon" />
             <p className="text-blue-100 font-semibold uppercase">Locate us</p>
             <div className="flex flex-col items-center">
               <p className="text-fontWhite">123 Main St</p>
@@ -50,7 +52,7 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-        <div className="mx-8 md:mx-20">
+        <div className="mx-8 md:mx-[190px]">
           <h3 className="text-fontWhite text-center uppercase font-semibold text-2xl mb-10">
             Get in touch
           </h3>

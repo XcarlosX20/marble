@@ -53,15 +53,15 @@ const Hero = () => {
             alt="bg-hero"
           />
         </div>
-        <div className="relative w-full h-full z-10 pb-12">
-          <div className="pt-[225px] px-8">
-            <div className="flex flex-col gap-14">
-              <article className="flex m-h-[20rem] flex-col items-start gap-4 w-full md:w-[646px] md:pl-20 lg:pl-48">
+        <div className="relative w-full h-full z-10 pb-14">
+          <div className="pt-[225px] px-8 md:px-20 lg:px-[190px]">
+            <div className="flex flex-col gap-14 xl:gap-28">
+              <article className="flex m-h-[20rem] flex-col items-start gap-4 w-full md:max-w-[646px]">
                 <h2 className="font-bold text-3xl">
                   Crafting Timeless beauty with the finest quality marble
                   materials
                 </h2>
-                <p className="font-medium">
+                <p className="font-medium md:max-w-[450px]">
                   Experience the beauty and functionality of marble. Our expert
                   work enhances spaces. Trust us for quality and attention to
                   detail.
@@ -83,7 +83,7 @@ const Hero = () => {
                   ))}
                 </Slider>
               </div>
-              <div className="md:grid grid-cols-4 gap-4 mx-20 lg:mx-[160px] hidden">
+              <div className="md:grid grid-cols-4 gap-4 hidden">
                 {heroCards.map((card) => (
                   <div key={card.name} className="bg-[#2D2D2D] p-8">
                     <div className="flex flex-col gap-4">
