@@ -49,9 +49,9 @@ const Projects = () => {
         <Slider {...sliderProps}>
           {projects.map((project, index) => (
             <div key={project} className={`${styles.card}`}>
-              <div className="relative items-center flex flex-col justify-end z-10 ">
+              <div className="relative h-full items-center flex flex-col justify-end z-10 ">
                 <Image
-                  className="rounded h-full w-full z-10"
+                  className="rounded object-cover h-full w-full z-10"
                   src={img}
                   alt="img"
                 />

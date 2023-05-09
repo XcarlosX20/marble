@@ -1,18 +1,18 @@
 .card{
     transition: all ease-in 100ms;
-    min-height: 400px;
-    transform: scale(0.90);
+    transform: scale(0.95);
     margin-top: 2rem;
+    height: 450px;
 }
 .card:hover{
     cursor: pointer;
      /* transform: perspective(500px) scale(1, 1.05) translateY(-20px); */
-    transform: scale3d(1.01,0.98,0.2) translateY(-15px);
+    transform: scale3d(1.01,1.02,0.2) translateY(-15px);
      
 }
 .card-content-text{
-    background: linear-gradient(transparent, rgb(0, 0, 0, 0.3), rgba(0, 0, 0, 0.500));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.700));
 }
 .card-content-text:hover{
-opacity: 0;
+    opacity: 0;
 }
