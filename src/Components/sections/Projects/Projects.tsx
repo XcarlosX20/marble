@@ -5,6 +5,7 @@ import styles from "./projects.module.css";
 import img from "public/assets/img/Rectangle 228project.jpg";
 import Image from "next/image";
 import { useState } from "react";
+import { Modal } from "@/Components/Layout/Modal";
 const Projects = () => {
   const projects = ["1", "2", "3", "4", "5", "6", "7", "8"];
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -58,6 +59,7 @@ const Projects = () => {
     },
   };
   const { CScrollIntoView } = useScrollIntoView("/#projects");
+  const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <CScrollIntoView>
       <section className="py-16 bg-dark-100">
@@ -67,7 +69,11 @@ const Projects = () => {
         <Slider {...sliderProps}>
           {Array.from({ length: 50 }, (project, index) => (index = index)).map(
             (project, index: number) => (
-              <div key={index} className={`${styles.card}`}>
+              <div
+                onClick={() => setShowModal(!showModal)}
+                key={index}
+                className={`${styles.card}`}
+              >
                 <div className="relative h-full items-center flex flex-col justify-end z-10">
                   <Image
                     className="rounded object-cover h-full w-full z-10"
@@ -87,6 +93,9 @@ const Projects = () => {
             )
           )}
         </Slider>
+        <div onClick={() => setShowModal(false)}>
+          <Modal open={showModal} />
+        </div>
       </section>
     </CScrollIntoView>
   );
