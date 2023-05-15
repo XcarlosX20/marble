@@ -13,7 +13,7 @@ interface Project {
   textBody: string;
 }
 const Projects = () => {
-  const sliderRef = useRef(null);
+  const sliderRef: any = useRef(null);
   const projects: Project[] = [];
   const { CScrollIntoView } = useScrollIntoView("/#projects");
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -75,7 +75,9 @@ const Projects = () => {
   };
   useEffect(() => {
     const timer = setTimeout(() => {
-      sliderRef.current.slickGoTo(currentSlide);
+      if (sliderRef.current) {
+        sliderRef.current.slickGoTo(currentSlide);
+      }
     }, 20);
     return () => clearTimeout(timer);
   }, [currentSlide, showModal]);
