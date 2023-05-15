@@ -6,9 +6,15 @@ import img from "public/assets/img/Rectangle 228project.jpg";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { Modal } from "@/Components/Layout/Modal";
+interface Project {
+  img: string;
+  id?: number;
+  textHead: string;
+  textBody: string;
+}
 const Projects = () => {
   const sliderRef = useRef(null);
-  const projects = ["1", "2", "3", "4", "5", "6", "7", "8"];
+  const projects: Project[] = [];
   const { CScrollIntoView } = useScrollIntoView("/#projects");
   const [showModal, setShowModal] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
