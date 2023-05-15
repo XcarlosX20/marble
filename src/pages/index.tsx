@@ -4,6 +4,7 @@ import { font } from "@/Components/Layout/theme";
 import { Whyus } from "@/Components/sections/Whyus";
 import { ContactUs } from "@/Components/sections/ContactUs/ContactUs";
 import { OurStory } from "@/Components/sections/Ourstory";
+import { Projects } from "@/Components/sections/Projects/Projects";
 export default function Home() {
   return (
     <>
@@ -11,6 +12,7 @@ export default function Home() {
       <main className={font.className}>
         <Hero />
         <Whyus />
+        <Projects />
         <OurStory />
         <ContactUs />
       </main>
