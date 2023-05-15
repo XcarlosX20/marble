@@ -4,10 +4,13 @@ import { useScrollIntoView } from "@/Hooks/useScrollIntoView";
 import styles from "./projects.module.css";
 import img from "public/assets/img/Rectangle 228project.jpg";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Modal } from "@/Components/Layout/Modal";
 const Projects = () => {
+  const sliderRef = useRef(null);
   const projects = ["1", "2", "3", "4", "5", "6", "7", "8"];
+  const { CScrollIntoView } = useScrollIntoView("/#projects");
+  const [showModal, setShowModal] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const sliderProps = {
     arrows: false,
@@ -59,19 +62,28 @@ const Projects = () => {
       );
     },
   };
-  const { CScrollIntoView } = useScrollIntoView("/#projects");
-  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const handleClick = (index: number) => {
+    setCurrentSlide(index);
+    setShowModal(true);
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      sliderRef.current.slickGoTo(currentSlide);
+    }, 20);
+    return () => clearTimeout(timer);
+  }, [currentSlide, showModal]);
   return (
     <CScrollIntoView>
       <section className="py-16 bg-dark-100">
         <h2 className="text-center uppercase text-fontWhite text-3xl font-semibold mb-8">
           Projects
         </h2>
-        <Slider {...sliderProps}>
+        <Slider ref={sliderRef} {...sliderProps}>
           {Array.from({ length: 50 }, (project, index) => (index = index)).map(
             (project, index: number) => (
               <div
-                onClick={() => setShowModal(!showModal)}
+                onClick={() => handleClick(index)}
                 key={index}
                 className={`${styles.card}`}
               >
@@ -94,22 +106,24 @@ const Projects = () => {
             )
           )}
         </Slider>
-        <div className="hidden md:block" onClick={() => setShowModal(false)}>
-          <Modal open={showModal}>
-            <div className="p-6">
-              <div className="flex gap-4">
-                <Image
-                  alt="modal"
-                  src={img}
-                  className="w-[241px] h-[319px] md:w-[598px] md:h-[auto] object-cover"
-                />
-                <div className="flex items-start">
-                  <button className="text-fontWhite">X</button>
-                </div>
-              </div>
+
+        <Modal open={showModal}>
+          <div className="flex flex-col-reverse md:flex-row gap-4">
+            <Image
+              alt="modal"
+              src={img}
+              className="w-[100vw] h-[auto] md:w-[598px] md:h-[auto] object-cover"
+            />
+            <div className="flex justify-end md:items-start">
+              <button
+                onClick={() => setShowModal(false)}
+                className="text-fontWhite mx-4 md:mx-0"
+              >
+                X
+              </button>
             </div>
-          </Modal>
-        </div>
+          </div>
+        </Modal>
       </section>
     </CScrollIntoView>
   );
