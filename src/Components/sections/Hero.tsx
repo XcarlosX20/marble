@@ -85,7 +85,7 @@ const Hero = () => {
                   ))}
                 </Slider>
               </div>
-              <div className="md:grid grid-cols-4 gap-4 hidden mt-[215px]">
+              <div className="md:grid grid-cols-4 gap-4 hidden mt-[300px]">
                 {heroCards.map((card) => (
                   <div
                     key={card.name}
