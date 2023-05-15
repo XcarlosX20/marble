@@ -17,6 +17,7 @@ const Projects = () => {
     slidesToShow: 5,
     slidesToScroll: 5,
     dotsClass: styles.button__bar,
+    draggable: false,
     responsive: [
       {
         breakpoint: 640,
@@ -93,8 +94,21 @@ const Projects = () => {
             )
           )}
         </Slider>
-        <div onClick={() => setShowModal(false)}>
-          <Modal open={showModal} />
+        <div className="hidden md:block" onClick={() => setShowModal(false)}>
+          <Modal open={showModal}>
+            <div className="p-6">
+              <div className="flex gap-4">
+                <Image
+                  alt="modal"
+                  src={img}
+                  className="w-[241px] h-[319px] md:w-[598px] md:h-[auto] object-cover"
+                />
+                <div className="flex items-start">
+                  <button className="text-fontWhite">X</button>
+                </div>
+              </div>
+            </div>
+          </Modal>
         </div>
       </section>
     </CScrollIntoView>
