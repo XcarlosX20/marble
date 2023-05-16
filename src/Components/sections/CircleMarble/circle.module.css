@@ -2,11 +2,11 @@
     position: relative;
     width: inherit;
     height: inherit;
-    border: 0.4vw solid rgba(0, 0, 0, 0.4);
+   /*  border: 0.1vw solid rgba(0, 0, 0, 0.2); */
     border-radius: 50%;
     transform: rotate(0deg);
-    transition: transform 0.7s linear;
-    animation: rotate 7s infinite linear;
+    transition: transform .7s linear;
+    animation: rotate 25s infinite linear;
 }
     .circle {
       display: block;
@@ -23,9 +23,9 @@
 
 @keyframes rotate {
   from {
-    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
