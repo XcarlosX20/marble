@@ -5,6 +5,7 @@ import { Whyus } from "@/Components/sections/Whyus";
 import { ContactUs } from "@/Components/sections/ContactUs/ContactUs";
 import { OurStory } from "@/Components/sections/Ourstory";
 import { Projects } from "@/Components/sections/Projects/Projects";
+import { Circle } from "@/Components/sections/CircleMarble/Circle";
 export default function Home() {
   return (
     <>
@@ -12,6 +13,7 @@ export default function Home() {
       <main className={font.className}>
         <Hero />
         <Whyus />
+        <Circle />
         <Projects />
         <OurStory />
         <ContactUs />
