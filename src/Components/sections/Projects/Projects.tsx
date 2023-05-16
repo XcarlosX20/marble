@@ -81,6 +81,7 @@ const Projects = () => {
     }, 20);
     return () => clearTimeout(timer);
   }, [currentSlide, showModal]);
+
   return (
     <CScrollIntoView>
       <section className="py-16 bg-dark-100">
@@ -93,7 +94,7 @@ const Projects = () => {
               <div
                 onClick={() => handleClick(index)}
                 key={index}
-                className={`${styles.card}`}
+                className={styles.card}
               >
                 <div className="relative h-full items-center flex flex-col justify-end z-10">
                   <Image

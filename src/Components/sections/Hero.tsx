@@ -9,41 +9,59 @@ import flooring from "public/assets/svg/Vectorflooring.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Galery } from "./Galery/Galery";
+import { SectionType } from "./Galery/constants";
+import { useState } from "react";
+
+const sliderProps = {
+  arrows: false,
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
+const heroCards = [
+  {
+    icon: kitchen,
+    name: "Kitchen",
+    description:
+      "Upgrade your kitchen with custom marble features that are both stylish and durable.",
+    section: SectionType.KITCHEN,
+  },
+  {
+    icon: bathroom,
+    name: "Bathroom",
+    description:
+      "Transform your bathroom into a luxurious oasis with custom marble vanities, showers, and flooring.",
+    section: SectionType.BATRHOOM,
+  },
+  {
+    icon: flooring,
+    name: "Flooring",
+    description:
+      "Elevate your space with beautiful and durable marble flooring.",
+    section: SectionType.FLOOR,
+  },
+  {
+    icon: customDesign,
+    name: "Custom design",
+    description:
+      "Create a one-of-a-kind feature for your space with our custom marble design services.",
+    section: SectionType.CUSTOM,
+  },
+];
+
 const Hero = () => {
-  const sliderProps = {
-    arrows: false,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+  const [sectionSelected, setSectionSelected] = useState<SectionType | null>(
+    null
+  );
+
+  const handleViewOurWork = (section: SectionType) => () => {
+    console.log(section);
+    setSectionSelected(section);
   };
-  const heroCards = [
-    {
-      icon: kitchen,
-      name: "Kitchen",
-      description:
-        "Upgrade your kitchen with custom marble features that are both stylish and durable.",
-    },
-    {
-      icon: bathroom,
-      name: "Bathroom",
-      description:
-        "Transform your bathroom into a luxurious oasis with custom marble vanities, showers, and flooring.",
-    },
-    {
-      icon: flooring,
-      name: "Flooring",
-      description:
-        "Elevate your space with beautiful and durable marble flooring.",
-    },
-    {
-      icon: customDesign,
-      name: "Custom design",
-      description:
-        "Create a one-of-a-kind feature for your space with our custom marble design services.",
-    },
-  ];
 
   return (
     <>
@@ -101,7 +119,10 @@ const Hero = () => {
                           {card.description}
                         </p>
                       </div>
-                      <div className="text-fontWhite flex space-x-2 hover:underline decoration-1 hover:cursor-pointer">
+                      <div
+                        className="text-fontWhite flex space-x-2 hover:underline decoration-1 hover:cursor-pointer"
+                        onClick={handleViewOurWork(card.section)}
+                      >
                         <p>View our work</p>
                         <Image src={arrow} alt="arrow" />
                       </div>
@@ -112,6 +133,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
+        <Galery section={sectionSelected} />
       </div>
     </>
   );
