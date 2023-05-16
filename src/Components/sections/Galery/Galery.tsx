@@ -18,7 +18,9 @@ export const Galery = ({ section }: Props) => {
   useEffect(() => {
     if (section) setSelectedSection(sections[section]);
   }, [section]);
+
   if (!section || !selectedSection) return null;
+
   return (
     <div className="w-full z-10 relative">
       <div className="md:grid grid-cols-4 gap-4 hidden bd-[#2D2D2D] mt-[-36px] px-8 md:px-20 max-w-[1148px] m-auto">
