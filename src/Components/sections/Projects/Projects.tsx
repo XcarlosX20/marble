@@ -24,7 +24,7 @@ const Projects = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     dotsClass: styles.button__bar,
     draggable: false,
     responsive: [
@@ -32,21 +32,12 @@ const Projects = () => {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 769,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
         },
       },
     ],
@@ -81,6 +72,7 @@ const Projects = () => {
     }, 20);
     return () => clearTimeout(timer);
   }, [currentSlide, showModal]);
+
   return (
     <CScrollIntoView>
       <section className="py-16 bg-dark-100">
@@ -88,12 +80,12 @@ const Projects = () => {
           Projects
         </h2>
         <Slider ref={sliderRef} {...sliderProps}>
-          {Array.from({ length: 50 }, (project, index) => (index = index)).map(
+          {Array.from({ length: 25 }, (project, index) => (index = index)).map(
             (project, index: number) => (
               <div
                 onClick={() => handleClick(index)}
                 key={index}
-                className={`${styles.card}`}
+                className={styles.card}
               >
                 <div className="relative h-full items-center flex flex-col justify-end z-10">
                   <Image
