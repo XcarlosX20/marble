@@ -1,0 +1,13 @@
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 42px solid transparent;
+  border-right: 42px solid transparent;
+  border-bottom: 38px solid #2d2d2d;
+  margin: auto;
+}
+
+.section-icon {
+  width: 80px;
+  height: auto;
+}
