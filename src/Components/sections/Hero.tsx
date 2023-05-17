@@ -1,7 +1,7 @@
 import Image from "next/image";
 import bg from "public/assets/img/bg-hero.jpg";
 import { Button } from "../Layout/Button";
-import arrow from "public/assets/svg/arrow.svg";
+import arrow from "public/assets/svg/arrowPointer.svg";
 import kitchen from "public/assets/svg/Vectorkitchen.svg";
 import customDesign from "public/assets/svg/ruler_svgrepo.comcustomdesign.svg";
 import bathroom from "public/assets/svg/Vectorbathroom.svg";
