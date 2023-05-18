@@ -6,7 +6,8 @@
     border-radius: 50%;
     transform: rotate(0deg);
     transition: transform .7s linear;
-    animation: rotate 25s infinite linear;
+    animation: rotate infinite linear;
+    animation-duration: 40s;
 }
     .circle {
       display: block;
