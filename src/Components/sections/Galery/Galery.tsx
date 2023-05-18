@@ -13,6 +13,7 @@ import { Button } from "@/Components/Layout/Button";
 import { StaticImageData } from "next/image";
 import arrow from "public/assets/svg/arrow.svg";
 import close from "public/assets/svg/close.svg";
+import { Modal } from "@/Components/Layout/Modal";
 
 type Props = {
   section: SectionType | null;
@@ -30,18 +31,12 @@ export const Galery = ({ section }: Props) => {
   const [curSection, setCurSection] = useState<SectionType | null>();
   const [selectedSection, setSelectedSection] = useState<ISection | null>();
   const [selectedImage, setSelectedImage] = useState<StaticImageData | null>();
-  const [selectedImageHover, setSelectedImageHover] =
-    useState<StaticImageData | null>();
+  const [{ isOpen, img }, setModalState] = useState<{
+    isOpen: boolean;
+    img: StaticImageData | null | undefined;
+  }>({ isOpen: false, img: null });
 
   const handleHover = (image: StaticImageData) => () => {
-    setSelectedImageHover(image);
-  };
-
-  const handleBlur = () => {
-    setSelectedImageHover(null);
-  };
-
-  const handlePickImage = (image: StaticImageData) => () => {
     setSelectedImage(image);
   };
 
@@ -56,6 +51,19 @@ export const Galery = ({ section }: Props) => {
     const newSection = getSection(position, curSection);
     setSectionValues(newSection)();
   };
+
+  const handleClick = () => {
+    setModalState({
+      isOpen: true,
+      img: selectedImage,
+    });
+  };
+
+  const handleClose = () =>
+    setModalState({
+      isOpen: false,
+      img: null,
+    });
 
   useEffect(() => {
     if (section) {
@@ -122,18 +130,17 @@ export const Galery = ({ section }: Props) => {
             </div>
             <div className="flex-1">
               <Image
-                src={selectedImageHover || (selectedImage as StaticImageData)}
+                src={selectedImage as StaticImageData}
                 alt={section}
-                className="h-[315px]"
+                className="h-[315px] cursor-pointer"
+                onClick={handleClick}
               />
             </div>
           </div>
           <div className="flex gap-[10px] mt-[60px]">
             {selectedSection.images.map((image, index) => (
               <Image
-                onClick={handlePickImage(image)}
                 onMouseEnter={handleHover(image)}
-                onMouseLeave={handleBlur}
                 key={`${index}-image`}
                 src={image}
                 alt={section}
@@ -143,6 +150,24 @@ export const Galery = ({ section }: Props) => {
           </div>
         </div>
       </div>
+
+      <Modal open={isOpen} onClose={handleClose}>
+        <div className="flex flex-col-reverse md:flex-row gap-4">
+          <Image
+            alt="modal"
+            src={img as StaticImageData}
+            className="w-[100%] h-[auto] object-cover"
+          />
+          <div className="flex justify-end md:items-start">
+            <button
+              onClick={handleClose}
+              className="text-fontWhite mx-4 md:mx-0"
+            >
+              X
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };

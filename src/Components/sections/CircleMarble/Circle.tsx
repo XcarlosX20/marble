@@ -1,22 +1,41 @@
-import { useState } from "react";
-import styles from "./Circle.module.css";
+import { useEffect, useState } from "react";
+import styles from "./circle.module.css";
 import Image from "next/image";
-import { Marble, circlesList } from "./constants";
+import { Marble, circlesList, gapCircle } from "./constants";
+
+const circleInitialState = {
+  imgCircle: "",
+  imgMarble: "",
+  name: "",
+};
+
 const Circle = () => {
-  const gapCircle: number = 360 / circlesList.length;
-  const [circleToFocus, setCircleToFocus] = useState<Marble>({
-    imgCircle: "",
-    imgMarble: "",
-    name: "",
-  });
-  const handleSetCircle = (circle: Marble) => {
-    setCircleToFocus(circle);
+  const [circleToFocus, setCircleToFocus] =
+    useState<Marble>(circleInitialState);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.scrollY;
+    setScrollPosition(position);
   };
+
+  const handleOnHover = (index: number) => () => {
+    setCircleToFocus(circlesList[index]);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    // Limpiar el evento de desplazamiento cuando el componente se desmonta
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="flex items-center justify-center">
-      <div className="relative w-[60vw] h-[60vw] md:w-[30vw] md:h-[30vw]">
-        <div className="absolute border-2 border-dark-100 inset-0 m-auto w-[70%] h-[70%] flex justify-center items-center rounded-full ">
-          <div className="flex flex-col justify-start items-center p-2 bg-fontWhite w-[80%] h-[80%] rounded-full">
+      <div className="relative w-[500px] h-[500px] lg:w-[30vw] lg:h-[30vw]">
+        <div className="absolute border-2 border-dark-100 inset-0 m-auto w-[300px] h-[296px] flex justify-center items-center rounded-full ">
+          <div className="flex flex-col justify-start items-center p-2 bg-fontWhite w-[248px] h-[244px] rounded-full">
             <Image
               className="w-full h-auto object-cover"
               height={110}
@@ -29,16 +48,21 @@ const Circle = () => {
             </p>
           </div>
         </div>
-        <div className={`${styles["parent-circle"]} relative z-[10] `}>
+        <div
+          className={`${styles["parent-circle"]} relative z-[10]`}
+          style={{
+            transform: `rotate(${scrollPosition / 8}deg)`,
+          }}
+        >
           {circlesList.map((circle, index) => (
             <div
+              onMouseEnter={handleOnHover(index)}
               key={index}
-              onClick={() => handleSetCircle(circle)}
               style={{
                 backgroundImage: `url(${circle.imgCircle})`,
                 transform: `rotate(${
                   gapCircle * index++
-                }deg) translate(316%) rotate(${gapCircle * index++ * -1}deg)`,
+                }deg) translate(300%) rotate(${gapCircle * index++ * -1}deg)`,
               }}
               className={`${styles["circle"]} hover:cursor-pointer bg-cover`}
             ></div>

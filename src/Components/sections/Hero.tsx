@@ -68,7 +68,7 @@ const Hero = () => {
       <div className="relative bg-gray">
         <div className="absolute overflow-hidden w-full h-full z-6 top-0 left-0 right-0 bottom-0">
           <Image
-            className="h-[90vh] w-[100vw] object-cover"
+            className="h-[100vh] w-[100vw] object-cover"
             src={bg}
             alt="bg-hero"
           />
@@ -88,10 +88,13 @@ const Hero = () => {
                 </p>
                 <Button className="mt-[25px]">FIND OUT MORE</Button>
               </article>
-              <div className="md:hidden">
+              <div className="tb:hidden hxsm:mt-[50px] hsm:mt-[100px] hmd:mt-[200px] hlg:mt-[300px] mt-[20rem]">
                 <Slider className="w-60 mx-auto" {...sliderProps}>
                   {heroCards.map((card) => (
-                    <div key={card.name} className="bg-[#2D2D2D] h-[20rem] p-8">
+                    <div
+                      key={card.name}
+                      className="bg-[#2D2D2D] h-[20rem] hxsm: p-8"
+                    >
                       <div className="flex flex-col gap-4">
                         <Image src={card.icon} alt="kitchen" />
                         <p className="text-blue-100 font-medium uppercase">
@@ -103,7 +106,7 @@ const Hero = () => {
                   ))}
                 </Slider>
               </div>
-              <div className="md:grid grid-cols-4 gap-4 hidden mt-[300px]">
+              <div className="tb:grid grid-cols-4 gap-4 hidden hxsm:mt-[50px] hsm:mt-[100px] hmd:mt-[200px] hlg:mt-[300px] mt-[20rem]">
                 {heroCards.map((card) => (
                   <div
                     key={card.name}

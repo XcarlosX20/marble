@@ -64,6 +64,9 @@ const Projects = () => {
     setCurrentSlide(index);
     setShowModal(true);
   };
+
+  const handleClose = () => setShowModal(false);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (sliderRef.current) {
@@ -107,7 +110,7 @@ const Projects = () => {
           )}
         </Slider>
 
-        <Modal open={showModal}>
+        <Modal open={showModal} onClose={handleClose}>
           <div className="flex flex-col-reverse md:flex-row gap-4">
             <Image
               alt="modal"
@@ -116,7 +119,7 @@ const Projects = () => {
             />
             <div className="flex justify-end md:items-start">
               <button
-                onClick={() => setShowModal(false)}
+                onClick={handleClose}
                 className="text-fontWhite mx-4 md:mx-0"
               >
                 X

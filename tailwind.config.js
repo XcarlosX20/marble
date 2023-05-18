@@ -5,7 +5,18 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        // heigth
+        hlg: { raw: "(max-height: 900px)" },
+        hmd: { raw: "(max-height: 800px)" },
+        hsm: { raw: "(max-height: 700px)" },
+        hxsm: { raw: "(max-height: 600px)" },
+
+        // width
+        tb: { raw: "(min-width: 991px)" },
+      },
+    },
     colors: {
       light: { 100: "#D9D9D9", 200: "#E7E7E7", 300: "#C4C4C4" },
       gray: "#B0B0B0",

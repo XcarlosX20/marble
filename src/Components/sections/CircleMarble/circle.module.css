@@ -1,26 +1,28 @@
 .parent-circle {
-    position: relative;
-    width: inherit;
-    height: inherit;
-   /*  border: 0.1vw solid rgba(0, 0, 0, 0.2); */
-    border-radius: 50%;
-    transform: rotate(0deg);
-    transition: transform .7s linear;
-    animation: rotate infinite linear;
-    animation-duration: 40s;
+  position: relative;
+  width: inherit;
+  height: inherit;
+  /*  border: 0.1vw solid rgba(0, 0, 0, 0.2); */
+  border-radius: 50%;
+  transition: transform 0.1s linear;
 }
-    .circle {
-      display: block;
-      position: absolute;
-      width: 16%;
-      height: 16%;
-      margin: -8%;
-      border-radius: 50%;
-      top: 50%; 
-      left: 50%;
-    }
-  
+.circle {
+  display: block;
+  position: absolute;
+  width: 16%;
+  height: 16%;
+  margin: -8%;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
 
+.circle:hover {
+  box-shadow: 10px -5px 9px -1px rgba(0, 0, 0, 0.25);
+}
 
 @keyframes rotate {
   from {
